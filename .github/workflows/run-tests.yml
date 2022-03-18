@@ -1,5 +1,9 @@
-name: Run tests
-on: pull_request
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,6 +11,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install modules
       run: npm install
-    - name: Run tests
+    - name: npm tests
       run: npm test
       
